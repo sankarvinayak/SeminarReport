@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.12.7)  7 DEC 2022 21:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.12.7)  8 DEC 2022 18:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -421,7 +421,7 @@ Package tocbibind Note: Using chapter style headings, unless overridden.
 LaTeX Font Info:    Trying to load font information for OT1+txr on input line 71.
  (/usr/share/texmf-dist/tex/latex/txfonts/ot1txr.fd
 File: ot1txr.fd 2000/12/15 v3.1
-) (./seminar_report.aux (./coverpage.aux) (./certificate1.aux) (./declaration.aux) (./abstract.aux) (./acknowledgement.aux) (./symbol.aux))
+) (./seminar_report.aux (./Contents/coverpage.aux) (./Contents/certificate.aux) (./Contents/declaration.aux) (./Contents/acknowledgement.aux) (./Contents/abstract.aux) (./Contents/symbol.aux) (./Contents/introduction.aux))
 \openout1 = `seminar_report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 71.
@@ -558,9 +558,9 @@ Package tocbasic Warning: `tocbibind' redefinition of `\listoftables'
 (tocbasic)                Loading `tocbibind' before `tocbasic' would avoid
 (tocbasic)                this warning message.
 
-\openout2 = `coverpage.aux'.
+\openout2 = `Contents/coverpage.aux'.
 
-(./coverpage.tex
+(./Contents/coverpage.tex
 LaTeX Font Info:    Trying to load font information for OT1+phv on input line 9.
  (/usr/share/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
@@ -584,9 +584,9 @@ LaTeX Font Info:    Font shape `OT1/txr/b/n' in size <10> not available
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./logo.png>])
-\openout2 = `certificate1.aux'.
+\openout2 = `Contents/certificate.aux'.
 
- (./certificate1.tex
+ (./Contents/certificate.tex
 LaTeX Font Info:    Font shape `OT1/txr/b/n' in size <12> not available
 (Font)              Font shape `OT1/txr/bx/n' tried instead on input line 10.
 File: logo.png Graphic file (type png)
@@ -609,7 +609,7 @@ LaTeX Font Info:    Trying to load font information for U+txsyc on input line 32
  (/usr/share/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
 )
-Overfull \hbox (47.38089pt too wide) in paragraph at lines 32--40
+Overfull \hbox (64.45271pt too wide) in paragraph at lines 32--40
  [][] 
  []
 
@@ -618,26 +618,21 @@ Overfull \hbox (47.38089pt too wide) in paragraph at lines 32--40
 
 
 ]
-\openout2 = `declaration.aux'.
+\openout2 = `Contents/declaration.aux'.
 
- (./declaration.tex) [2
+ (./Contents/declaration.tex) [2
 
 
 
 ]
-\openout2 = `abstract.aux'.
+\openout2 = `Contents/acknowledgement.aux'.
 
- (./abstract.tex
+ (./Contents/acknowledgement.tex
 LaTeX Font Info:    Font shape `OT1/txr/b/n' in size <24.88> not available
 (Font)              Font shape `OT1/txr/bx/n' tried instead on input line 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 8--10
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 11--12
-
+Overfull \hbox (33.67503pt too wide) in paragraph at lines 12--13
+\OT1/txr/bx/n/12 Dominic\OT1/txr/m/n/12 ,| As-sis-tant Professor,| Com-puter Sci-ence and Engineering,| Col-lege of Engineering|  for
  []
 
 ) [1
@@ -646,14 +641,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--12
 
 
 ]
-\openout2 = `acknowledgement.aux'.
+\openout2 = `Contents/abstract.aux'.
 
- (./acknowledgement.tex
-Overfull \hbox (33.67503pt too wide) in paragraph at lines 12--13
-\OT1/txr/bx/n/12 Dominic\OT1/txr/m/n/12 ,| As-sis-tant Professor,| Com-puter Sci-ence and Engineering,| Col-lege of Engineering|  for
- []
-
-) [2
+ (./Contents/abstract.tex) [2
 
 
 
@@ -679,37 +669,43 @@ Overfull \hbox (33.67503pt too wide) in paragraph at lines 12--13
  [5
 
 ]
-\openout2 = `symbol.aux'.
+\openout2 = `Contents/symbol.aux'.
 
- (./symbol.tex) [6
+ (./Contents/symbol.tex) [6
 
 
 ]
+\openout2 = `Contents/introduction.aux'.
+
+ (./Contents/introduction.tex
 Chapter 1.
-[1
+) [1
+
 
 
 
 
 ]
 Chapter 2.
-<ospf.jpg, id=45, 1322.9425pt x 524.96124pt>
+<ospf.jpg, id=44, 1322.9425pt x 524.96124pt>
 File: ospf.jpg Graphic file (type jpg)
 <use ospf.jpg>
-Package pdftex.def Info: ospf.jpg  used on input line 170.
+Package pdftex.def Info: ospf.jpg  used on input line 173.
 (pdftex.def)             Requested size: 371.30595pt x 147.33258pt.
 [2
 
+
+
  <./ospf.jpg>]
-<sinewave.jpg, id=49, 334.24875pt x 151.56625pt>
+<sinewave.jpg, id=48, 334.24875pt x 151.56625pt>
 File: sinewave.jpg Graphic file (type jpg)
 <use sinewave.jpg>
-Package pdftex.def Info: sinewave.jpg  used on input line 198.
+Package pdftex.def Info: sinewave.jpg  used on input line 201.
 (pdftex.def)             Requested size: 165.02347pt x 74.8324pt.
-<cosine.jpg, id=50, 338.26375pt x 150.5625pt>
+<cosine.jpg, id=49, 338.26375pt x 150.5625pt>
 File: cosine.jpg Graphic file (type jpg)
 <use cosine.jpg>
-Package pdftex.def Info: cosine.jpg  used on input line 204.
+Package pdftex.def Info: cosine.jpg  used on input line 207.
 (pdftex.def)             Requested size: 165.02347pt x 73.45462pt.
  [3 <./sinewave.jpg> <./cosine.jpg>]
 Chapter 3.
@@ -720,22 +716,22 @@ Chapter 4.
 [6
 
 ]
-LaTeX Font Info:    Trying to load font information for OT1+txtt on input line 250.
+LaTeX Font Info:    Trying to load font information for OT1+txtt on input line 253.
  (/usr/share/texmf-dist/tex/latex/txfonts/ot1txtt.fd
 File: ot1txtt.fd 2000/12/15 v3.1
 ) [7
 
-] (./seminar_report.aux (./coverpage.aux) (./certificate1.aux) (./declaration.aux) (./abstract.aux) (./acknowledgement.aux) (./symbol.aux)) ) 
+] (./seminar_report.aux (./Contents/coverpage.aux) (./Contents/certificate.aux) (./Contents/declaration.aux) (./Contents/acknowledgement.aux) (./Contents/abstract.aux) (./Contents/symbol.aux) (./Contents/introduction.aux)) ) 
 Here is how much of TeX's memory you used:
- 9772 strings out of 478238
- 168254 string characters out of 5850456
- 569177 words of memory out of 5000000
- 27722 multiletter control sequences out of 15000+600000
- 502953 words of font info for 98 fonts, out of 8000000 for 9000
+ 9799 strings out of 478238
+ 170770 string characters out of 5850456
+ 569824 words of memory out of 5000000
+ 27743 multiletter control sequences out of 15000+600000
+ 501637 words of font info for 96 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 110i,10n,106p,524b,577s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 110i,10n,106p,567b,576s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texmf-dist/fonts/type1/public/txfonts/txtt.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on seminar_report.pdf (16 pages, 435670 bytes).
+Output written on seminar_report.pdf (16 pages, 436273 bytes).
 PDF statistics:
  108 PDF objects out of 1000 (max. 8388607)
  66 compressed objects within 1 object stream

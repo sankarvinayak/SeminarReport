@@ -106,14 +106,14 @@ Network} % Seminar title
 
 %*******************************************************************
 % The font pages. The source tex files are there in the folder
-\include{coverpage} %Unless essential Do not edit this tex file
+\include{Contents/coverpage} %Unless essential Do not edit this tex file
 
 
 
 %%********************Certificate*******************
 
 % To print name of only the seminar coordinator 1 in the certificate page
-\include{certificate1} 
+\include{Contents/certificate} 
 
 % To print names of both the seminar coordinators in the certificate page
 %\include{certificate2} %Please uncomment this and comment the previous line
@@ -121,16 +121,17 @@ Network} % Seminar title
 %%***************************************************
 
 
-\include{declaration} %Unless essential Do not edit this tex file
+\include{Contents/declaration} %Unless essential Do not edit this tex file
 
 \pagenumbering{roman} 
-
-%%********************************Abstract***********************
-\include{abstract} % Please type in the abstract in this tex file abstract.tex
-
 %%***************************************************
 % Default Acknowledgement page
-\include{acknowledgement}  %Unless essential Do not edit this tex file
+\include{Contents/acknowledgement}  %Unless essential Do not edit this tex file
+
+%%********************************Abstract***********************
+\include{Contents/abstract} % Please type in the abstract in this tex file abstract.tex
+
+
 
 
 %%***************************************************
@@ -144,10 +145,11 @@ Network} % Seminar title
 \newpage
     
 %%**********************Table of Contents***********************
+\renewcommand{\contentsname}{\centering Contents}
 \tableofcontents
 \listoffigures
 \listoftables
-\include{symbol} %List of Symbols (Optional) comment if not required.
+\include{Contents/symbol} %List of Symbols (Optional) comment if not required.
 % symbold may be added in the file symbol.tex
 
 %%********************Body of the report**********
@@ -158,8 +160,9 @@ Network} % Seminar title
 \pagenumbering{arabic}
 
 %%********************Chapter 1**********
-\chapter{Introduction}
-\lipsum[1] % Please comment this line and type in the introduction chapter
+\include{Contents/introduction}
+%\chapter{Introduction}
+%\lipsum[1] % Please comment this line and type in the introduction chapter
 
 %%********************Chapter 2**********
 \chapter{Literature Review}

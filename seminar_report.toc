@@ -1,9 +1,10 @@
-\contentsline {chapter}{Abstract}{i}{}%
-\contentsline {chapter}{Acknowledgement}{ii}{}%
+\contentsline {chapter}{Acknowledgement}{i}{}%
+\contentsline {chapter}{Abstract}{ii}{}%
 \contentsline {chapter}{List of Figures}{iv}{}%
 \contentsline {chapter}{List of Tables}{v}{}%
 \contentsline {chapter}{List of Symbols}{vi}{}%
-\contentsline {chapter}{\numberline {1}Introduction}{1}{}%
+\contentsline {chapter}{\numberline {1}\centering Introduction}{1}{}%
+\contentsline {chapter}{Introduction}{1}{}%
 \contentsline {chapter}{\numberline {2}Literature Review}{2}{}%
 \contentsline {section}{\numberline {2.1}section1}{2}{}%
 \contentsline {subsection}{\numberline {2.1.1}title 2}{3}{}%
