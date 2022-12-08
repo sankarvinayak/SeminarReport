@@ -13,15 +13,15 @@
 \usepackage{multirow}
 \usepackage{ragged2e}
 \usepackage{gensymb}
-\usepackage{amsfonts} 
+\usepackage{amsfonts}
 \usepackage[left=3.5cm,top=1.5cm,right=3cm,bottom=4cm]{geometry}
-\usepackage{setspace}           
+\usepackage{setspace}
 \usepackage{float}
 \usepackage{txfonts}
 \usepackage{lipsum}
 \newcommand{\Usefont}[1]{\fontfamily{#1}\selectfont}
 \usepackage{lscape} % for landscape tables
-\renewcommand{\baselinestretch}{1.7} 
+\renewcommand{\baselinestretch}{1.7}
 \usepackage{blindtext}
 \usepackage{xpatch}
 \usepackage{url}
@@ -60,7 +60,7 @@
 % figure files can be in jpeg,jpg, png or pdf formats
 %*******************************************************************
 \begin{document}
-	
+
 %****The entries in this section are to be filled in by the student with appropriate values *************
 
 % These values are used thoroughout the report 
@@ -74,10 +74,8 @@
 \gdef \collegeplace{Sreekrishnapuram}
 \gdef \rollno{PKD19CS046} %KTU Reg No
 \gdef \deptabbr{Dept.of CSE} %Dept name abbreviation
-
 \gdef \guide{Liji L Dominic} %Seminar guide
 \gdef \guidedes{Assistant Professor}%Seminar guide designation
-
 \gdef \semcordinatorA{Dr. Swaraj K P}% Seminar coordinator 1 
 \gdef \semcordinatorAdes{Associate Professor}% Seminar coordinator 1 designation
 
@@ -95,22 +93,19 @@
 % The font pages. The source tex files are there in the folder
 \include{Contents/coverpage} %Unless essential Do not edit this tex file
 
-
-
 %%********************Certificate*******************
 
 % To print name of only the seminar coordinator 1 in the certificate page
-\include{Contents/certificate} 
+\include{Contents/certificate}
 
 % To print names of both the seminar coordinators in the certificate page
 %\include{certificate2} %Please uncomment this and comment the previous line
 
 %%***************************************************
 
-
 \include{Contents/declaration} %Unless essential Do not edit this tex file
 
-\pagenumbering{roman} 
+\pagenumbering{roman}
 %%***************************************************
 % Default Acknowledgement page
 \include{Contents/acknowledgement}  %Unless essential Do not edit this tex file
@@ -126,13 +121,14 @@
 
 \thispagestyle{empty}
 \newpage
-    
+
 %%**********************Table of Contents***********************
 \renewcommand{\contentsname}{\centering Contents}
 \tableofcontents
 \listoffigures
 \listoftables
-\include{Contents/symbol} %List of Symbols (Optional) comment if not required.
+%==================================symbol.tex================================
+\include{Contents/symbol} %List of Symbol (Optional) comment if not required.
 % symbold may be added in the file symbol.tex
 
 %%********************Body of the report**********
@@ -141,21 +137,23 @@
 \cleardoublepage
 \setcounter{page}{1}
 \pagenumbering{arabic}
-
+%==================================introduction.tex=============================
 %%********************Chapter 1**********
 \include{Contents/introduction}
 %\lipsum[1] % Please comment this line and type in the introduction chapter
-
+%==================================litrature.tex=============================
 %%********************Chapter 2**********
 \include{Contents/litrature}
+%==================================result.tex=============================
 %%********************Chapter 3**********
 \include{Contents/result}
+%==================================conclusion.tex=============================
 %%********************Chapter 4**********
 \include{Contents/conclusion}
-
+%==================================bibiliography.tex================================
 %%********************References**********
 %%****This template uses IEEE bibliography style
+
 \include{Contents/bibiliography}
- 
 
 \end{document}
