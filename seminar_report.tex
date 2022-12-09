@@ -34,6 +34,13 @@
 \usepackage[nottoc]{tocbibind}
 \bibliographystyle{IEEEtran}
 \renewcommand{\bibname}{References}
+\usepackage{titlesec}
+
+\titleformat{\chapter}[display]
+{\normalfont\Large\bfseries\centering}{\centering\chaptertitlename\ \thechapter}{20pt}{\Large}
+\titlespacing*{\chapter}
+{0pt}{50pt}{40pt}
+
 %*******************************************************************
 %                        Header and Footer   
 % This is not required in Technical reports submitted to CET ECE department.
@@ -78,8 +85,7 @@
 \gdef \guidedes{Assistant Professor}%Seminar guide designation
 \gdef \semcordinatorA{Dr. Swaraj K P}% Seminar coordinator 1 
 \gdef \semcordinatorAdes{Associate Professor}% Seminar coordinator 1 designation
-
-\gdef \semcordinatorB{Prof. Seminar coordinator 2} % Seminar coordinator 2 
+\gdef \semcordinatorB{Ali Akbar N} % Seminar coordinator 2 
 \gdef \semcordinatorBdes{Associate Professor}% Seminar coordinator 2 designation
 
 \gdef \hod{Dr. Sabitha S} %Head of Department
