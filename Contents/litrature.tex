@@ -49,10 +49,7 @@ the network is able to recall the information as a set of stable states
 
 The main drawbacks of the model are that it may not converge to correct output
 state when it is supplied with a pattern which is only partially similar to the
-stored patterns or when it is not trained on sufficiently distinct data and is
-that it is not well suited for dealing with a large amount of data because the
-number of connections increased when the number of nodes increased. It makes it
-difficult to train on large datasets.
+stored patterns or when it is not trained on sufficiently distinct data.
 
 \section{\Snn}
 Spiking neural networks are a type of neural network that models the behaviour
@@ -63,21 +60,31 @@ systems. The use of spiking neural networks for building associative memory
 systems is a relatively new area of research that has only recently started to
 gain attention.
 \subsection{Spike time dependent plasticity}
-Spike time dependent plasticity (STDP) is an unsupervised learning rule based
-on the functioning of neurons in the brain. In the process strength of
-connection between neurons change based on the relative timing of spikes or
-impulses
+Spike-timing-dependent plasticity (STDP)\cite{stdp} is an unsupervised learning
+rule based on the functioning of neurons in the brain for neuromorphic
+computing, which is the study inspired by the structure and functioning of the
+brain. In the process strength of the connection between neurons change based
+on the relative timing of spikes or impulses
 
 The basic idea behind STDP is that if two $N_{pre}$ and $N_{suc}$ neurons are
 connected and their spike time are $t_1$ and $t_2$ respectively according to
-STDP
+STDP \vspace*{-.3pc}
 \begin{itemize}
-    \item[]Weight of connection from $N_{pre}$ to $N_{suc}$ should  increase, if $t_1>t_2$
-
-    \item[]Weight of connection from $N_{pre}$ to $N_{suc}$ should  decrease, if $t_1<t_2$
-    \item[]Weight of connection from $N_{pre}$ to $N_{suc}$ should  remain same, if $t_1=t_2$
+    \item[]Weight of connection from $N_{pre}$ to $N_{suc}$ should  increase, if {\boldmath $t_1>t_2$}
+    \item[]Weight of connection from $N_{pre}$ to $N_{suc}$ should  decrease, if {\boldmath $t_1<t_2$}
+    \item[]Weight of connection from $N_{pre}$ to $N_{suc}$ should  remain same, if {\boldmath$t_1=t_2$}
+    \item[]
 \end{itemize}
+\vspace*{-2.5pc}
+This process allows the neurons to adjust connection in a way which reflects
+the relationship between input and output spikes signals.
 \subsection{SpikeProp}
+SpikeProp is an unsupervised learning algorithm used in the field of
+neuromorphic computing used to train \Snn based on the principle of STDP. It is
+similar to the gradient descent algorithm used in conventional deep neural
+networks. It is computationally efficient and well-suited for real-time
+applications. The issue with this algorithm is the need for a large amount of
+data to achieve good results and only applicable to \Snn.
 
 % Associative memory systems: This would involve reviewing the existing research
 % on different types of associative memory systems, such as Hopfield networks,
