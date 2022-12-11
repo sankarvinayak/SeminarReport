@@ -87,13 +87,13 @@ corresponding neuron in the memory layer is calculated as
 \section{Structure formation}
 During the structure formation phase are fed into the network. The behaviour of
 neurons in the memory layer is recorded and new connections are made within the
-layer based on Hebb's learning rule\cite{hebbs}. New connection conditions are
-based on their threshold values of distance and time difference in firing two
-neurons to avoid explosive growth of connections. If there are two neurons
-which satisfy the threshold conditions on delay and distance in firing and
-there is no connection between them a new connection is established between
-them.The smaller the threshold lesser the number of connections that will be
-created.
+memory layer based on Hebb's learning rule\cite{hebbs}. New connection
+conditions are based on their threshold values of distance and time difference
+in firing two neurons to avoid explosive growth of connections. If there are
+two neurons which satisfy the threshold conditions on delay and distance in
+firing and there is no connection between them a new connection is established
+between them.The smaller the threshold lesser the number of connections that
+will be created.
 
 It is repeated until the stopping condition is satisfied. Due to the leaking
 characteristics of the LIF model used the connection from the memory layer to
@@ -104,6 +104,25 @@ calculated as
     delay_{mo(x,y)}=[N_m-delay_{im(x,y)}]+1
 \end{equation*}
 \section{Parameter training}
+This phase is based on the ideas of STDP and reinforcement learning. This phase
+checks the recall ability of the network for the set of inputs. This phase does
+not change the weights of the connection between layers but rather changes the
+weight of the connection within the memory layer itself. For this process when
+a spiking sequence is fed into the network the most frequently fired neuron in
+the output layer is considered as output. If the network could correctly recall
+then no optimization need to be done else the weights need to be adjusted. It
+works based on the following algorithm \\Step 1:Pick an input image\\ Step
+2:Feed input to the network\\ Step 3:Pick If the result of the output layer is
+correct go to 1 else 4\\ Step 4:Identify incorrectly firing set of neurons in
+output layer $S_{O}$ memory layer $S_{M}$ \\ Step 5:If i is a neuron in $S_M$
+and and j is a neuron in $S_O$ and weight of connection between them is
+$W_{i,j}$, then $W_{i,j}=W_{i,j}*Shrink\_Coeff$\\ This process repeated for all
+the images.The value of $Shrink\_Coeff$ is constant between 0 and 1.figure
+\ref{recall} shows the recall response in the memory layer when it is supplied
+with an input image corresponding to the number six. Colours indicate the time
+at which the spike occurred and lines indicate the connection between neurons.
+There is different response based on the four different kernels used show by
+four images.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\linewidth]{recall}
@@ -111,5 +130,10 @@ calculated as
     \label{recall}
 \end{figure}
 \section{Pruning}
+This phase help in improving the efficiency of the network. In this phase if
+the weight of a connection is less than the threshold (here 3), connection will
+be removed. Also, if there is a neuron in memory layer in memory layer which
+does not have any connections to output layer, the connection from input layer
+to that neuron will also be deleted.
 % This section describes the research methods used in the seminar, including the
 % participants, data collection techniques, and data analysis methods.
