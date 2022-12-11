@@ -2,6 +2,7 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{fancyhdr}
+\usepackage{mathtools}
 \usepackage{cite}
 \usepackage{framed}
 \usepackage{a4wide}
@@ -36,6 +37,7 @@
 \renewcommand{\bibname}{References}
 \usepackage{titlesec}
 
+
 \titleformat{\chapter}[display]
 {\normalfont\Large\bfseries\centering}{\centering\chaptertitlename\ \thechapter}{20pt}{\Large}
 \titlespacing*{\chapter}
@@ -67,7 +69,10 @@
 % figure files can be in jpeg,jpg, png or pdf formats
 %*******************************************************************
 \begin{document}
-
+\addtolength{\abovedisplayskip}{-2ex}
+\addtolength{\abovedisplayshortskip}{-2ex}
+\addtolength{\belowdisplayskip}{-1ex}
+\addtolength{\belowdisplayshortskip}{-1ex}
 %****The entries in this section are to be filled in by the student with appropriate values *************
 
 % These values are used thoroughout the report 

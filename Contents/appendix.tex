@@ -6,12 +6,20 @@
     \addcontentsline{toc}{chapter}{Appendices}%
 \end{center}
 \begin{description}
-    \item[Hebb's learning rule:] When an axon of a cell A is sufficiently close to excite
-        a cell B, and repeatedly and or persistently takes part in firing it some
-        growth related process or metabolic changes takes place in one or both of the
-        cell such that A's efficiency, as one of the cells firing B is increased.
-\end{description}
+    \item[Hebb's learning rule:]\cite{hebbs} When an axon of a cell A is sufficiently
+    close to excite a cell B, and repeatedly and or persistently takes part in
+    firing it some growth related process or metabolic changes takes place in one
+    or both of the cell such that A's efficiency, as one of the cells firing B is
+    increased.
+    \item[Leaky integrate and fire]\cite{leakyintegrate}
+    \begin{equation*}
+        V(t)=\begin{cases}
+            \beta.V(t-1)+V_{in}(t) \hspace{5px} when \hspace{5px} V<V_{th} \\
+            V_{reset} and set spike\hspace{5px} when \hspace{5px} V\ge V_{th}
+        \end{cases}
+    \end{equation*}
 
+\end{description}
 
 % \end{flushright}
 
