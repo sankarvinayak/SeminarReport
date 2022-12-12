@@ -2,7 +2,7 @@
 Construction of associative memory using \Snn\cite{base} in this method consist of four phases
 \begin{enumerate}
     \itemsep 0em
-    \item Initialization :Initialization of \Snn and the input spiking signals
+    \item Initialization : Initialization of \Snn and the input spiking signals
     \item Structure formation : New connection with neighboring neuron are formed
     \item Parameter training : Optimize weight of synapse based on STDP
     \item Pruning : Removing unnecessary connection to improve efficiency
@@ -118,11 +118,9 @@ output layer $S_{O}$ memory layer $S_{M}$ \\ Step 5:If i is a neuron in $S_M$
 and and j is a neuron in $S_O$ and weight of connection between them is
 $W_{i,j}$, then $W_{i,j}=W_{i,j}*Shrink\_Coeff$\\ This process repeated for all
 the images.The value of $Shrink\_Coeff$ is constant between 0 and 1.figure
-\ref{recall} shows the recall response in the memory layer when it is supplied
+\ref{recall} shows the firing behavior of the memory layer when it is supplied
 with an input image corresponding to the number six. Colours indicate the time
 at which the spike occurred and lines indicate the connection between neurons.
-There is different response based on the four different kernels used show by
-four images.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\linewidth]{recall}
