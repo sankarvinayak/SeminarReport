@@ -1,11 +1,13 @@
-\chapter{Methodology}%
-Construction of associative memory using \Snn\cite{base} in this method consist of four phases
+\chapter{Methodology}
+
+Construction of associative memory using SNN\cite{base} in this method consist
+of four phases
 \begin{enumerate}
-    \itemsep 0em
-    \item Initialization : Initialization of \Snn and the input spiking signals
-    \item Structure formation : New connection with neighboring neuron are formed
-    \item Parameter training : Optimize weight of synapse based on STDP
-    \item Pruning : Removing unnecessary connection to improve efficiency
+    \itemsep0em
+    \item Initialization: Initialization of SNN and the input spiking signals
+    \item Structure formation: New connection with neighboring neuron are formed
+    \item Parameter training: Optimize weight of synapse based on STDP
+    \item Pruning: Removing unnecessary connection to improve efficiency
 \end{enumerate}
 \section{Initialization}
 It involves two sub process in which the data is preprocessed and converted
@@ -13,45 +15,43 @@ into spiking signals and the network is initialized
 \subsection{Initialization input spiking signals}
 The input to the SNN are spiking signals for that the input values need to be
 converted into spiking signals. For the example purpose here MNIST dataset is
-used which contains handwritten characters on digits. The figure
-\ref{preprocessing} show the steps involved
+used which contains handwritten characters on digits. The
+figure\ref{preprocessing} show the steps involved
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\linewidth]{preprocessing}
-    \caption{Data preprocessing}
-    \label{preprocessing}
+    \caption{Data preprocessing}\label{preprocessing}
 \end{figure}
 
-Four convolutional kernels of size $4X4$ shown in \ref{kernel} is used to
-extract the features from the image pixel values. The input image into the
-kernel is of size $28X28$ and the convolutional kernels reduce the shape into
-$24X24$. Next these values are passed through a max pooling layer of size
-$2X2$. It reduces the size of image to $12X12$. The conversion layer convert
-these values into the spiking encoding.Pixel value in the range of [0,255]
-converted to delay in spike from [0,100]ms. The higher the value, shorter the
-delay.
+Four convolutional kernels of size $4\times4$ shown in figure\ref{kernel} is
+used to extract the features from the image pixel values. The input image into
+the kernel is of size $28\times28$ and the convolutional kernels reduce the
+shape into $24\times24$. Next these values are passed through a max pooling
+layer of size $2\times2$. It reduces the size of image to $12\times12$. The
+conversion layer convert these values into the spiking encoding. Pixel value in
+the range of [0,255] converted to delay in spike from [0,100]ms. The higher the
+value, shorter the delay.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\linewidth]{kernels}
-    \caption{Kernels used}
-    \label{kernel}
+    \caption{Kernels used}\label{kernel}
 \end{figure}
-In order to cover the values first min-max normalization is used in which if
+In order to cover the values first min-max normalization is used in which, if
 the value of a pixel is d then,
 \begin{equation*}
-    R(d)=\frac{d-d_{min}}{d_{max}-d_{min}}
+    R(d)=\frac{d-d_{\min}}{d_{\max}-d_{\min}}
 \end{equation*}
 
-Where d{min} and d{max} are maximum and minimum pixel values. Power encoding is
-used to get the spike time of pixel d,
+Where $d_{\min}$ and $d_{\max}$ are maximum and minimum pixel values. Power
+encoding is used to get the spike time of pixel d,
 \begin{equation*}
-    S(d)=(R(d)-1)^2 \times (T_{max}-T_{min})+T{min}
+    S(d)={(R(d)-1)}^2 \times (T_{\max}-T_{\min})+T{\min}
 \end{equation*}
-where T{min} and T{max} are starting and stopping time of spike.
+where $T_{\min}$ and $T_{\max}$ are starting and stopping time of spike.
 \subsection{Initialization of \Snn}
-The memory \nn in this method consists of three layers input, memory and output
-as shown in figure \ref{structure}. The spiking signal input is fed into the
+The memory NN in this method consists of three layers input, memory and output
+as shown in figure\ref{structure}. The spiking signal input is fed into the
 input layer. For the neuron, the LIF model is used. The memory layer grows new
 connections to remember them. The output layer is responsible for generating
 the output. The number of neurons in both the input and memory layers is the
@@ -60,8 +60,7 @@ consists of 10 neurons which are equal to the number of output classes.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\linewidth]{structure}
-    \caption{Structure of network}
-    \label{structure}
+    \caption{Structure of network}\label{structure}
 \end{figure}
 
 The connection from the input layer to the memory layer is one-to-one style.
@@ -72,7 +71,7 @@ rule\cite{hebbs} to take place.
 Each neuron in layers is assigned a coordinate value. By using a spatial to
 temporal mechanism which encodes the spatial information of pixel values into
 delay of connection from the input layer to the memory layer as shown in the
-figure \ref{delay}. The delay of a connection from a neuron i(x,y) where x and
+figure\ref{delay}. The delay of a connection from a neuron $i(x,y)$ where x and
 y are coordinates of the pixel values in a $p \times q$ input layer to
 corresponding neuron in the memory layer is calculated as
 \begin{equation*}
@@ -81,13 +80,12 @@ corresponding neuron in the memory layer is calculated as
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\linewidth]{delay}
-    \caption{Delay for neuron}
-    \label{delay}
+    \caption{Delay in neuron connections}\label{delay}
 \end{figure}
 \section{Structure formation}
-During the structure formation phase are fed into the network. The behaviour of
-neurons in the memory layer is recorded and new connections are made within the
-memory layer based on Hebb's learning rule\cite{hebbs}. New connection
+During the structure formation phase are fed into the network. The behavior of
+neurons in the memory layer is recorded, and new connections are made within
+the memory layer based on Hebb's learning rule\cite{hebbs}. New connection
 conditions are based on their threshold values of distance and time difference
 in firing two neurons to avoid explosive growth of connections. If there are
 two neurons which satisfy the threshold conditions on delay and distance in
@@ -117,15 +115,15 @@ correct go to 1 else 4\\ Step 4:Identify incorrectly firing set of neurons in
 output layer $S_{O}$ memory layer $S_{M}$ \\ Step 5:If i is a neuron in $S_M$
 and and j is a neuron in $S_O$ and weight of connection between them is
 $W_{i,j}$, then $W_{i,j}=W_{i,j}*Shrink\_Coeff$\\ This process repeated for all
-the images.The value of $Shrink\_Coeff$ is constant between 0 and 1.figure
-\ref{recall} shows the firing behavior of the memory layer when it is supplied
-with an input image corresponding to the number six. Colours indicate the time
-at which the spike occurred and lines indicate the connection between neurons.
+the images.The value of $Shrink\_Coeff$ is constant between 0 and
+1.figure\ref{recall} shows the firing behavior of the memory layer when it is
+supplied with an input image corresponding to the number six. Colours indicate
+the time at which the spike occurred and lines indicate the connection between
+neurons.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\linewidth]{recall}
-    \caption{Recall response for number 6}
-    \label{recall}
+    \caption{Recall response for number 6}\label{recall}
 \end{figure}
 \section{Pruning}
 This phase help in improving the efficiency of the network. In this phase if
