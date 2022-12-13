@@ -5,15 +5,15 @@ of four phases
 \begin{enumerate}
     \itemsep0em
     \item Initialization: Initialization of SNN and the input spiking signals
-    \item Structure formation: New connection with neighboring neuron are formed
+    \item Structure formation: New connections with neighbouring neurons are formed
     \item Parameter training: Optimize weight of synapse based on STDP
-    \item Pruning: Removing unnecessary connection to improve efficiency
+    \item Pruning: Removing unnecessary connections to improve efficiency
 \end{enumerate}
 \section{Initialization}
-It involves two sub process in which the data is preprocessed and converted
+It involves two sub-process in which the data is preprocessed and converted
 into spiking signals and the network is initialized
 \subsection{Initialization input spiking signals}
-The input to the SNN are spiking signals for that the input values need to be
+The input to the SNN is spiking signals for that the input values need to be
 converted into spiking signals. For the example purpose here MNIST dataset is
 used which contains handwritten characters on digits. The
 figure\ref{preprocessing} show the steps involved
@@ -27,17 +27,17 @@ figure\ref{preprocessing} show the steps involved
 Four convolutional kernels of size $4\times4$ shown in figure\ref{kernel} is
 used to extract the features from the image pixel values. The input image into
 the kernel is of size $28\times28$ and the convolutional kernels reduce the
-shape into $24\times24$. Next these values are passed through a max pooling
-layer of size $2\times2$. It reduces the size of image to $12\times12$. The
-conversion layer convert these values into the spiking encoding. Pixel value in
-the range of [0,255] converted to delay in spike from [0,100]ms. The higher the
-value, shorter the delay.
+shape into $24\times24$. Next, these values are passed through a max pooling
+layer of size $2\times2$. It reduces the size of the image to $12\times12$. The
+conversion layer converts these values into spiking encoding. Pixel value in
+the range of [0,255] converted to delay in a spike from [0,100]ms. The higher
+the value, shorter the delay.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\linewidth]{kernels}
     \caption{Kernels used}\label{kernel}
 \end{figure}
-In order to cover the values first min-max normalization is used in which, if
+To cover the values first min-max normalization is used in which, if
 the value of a pixel is d then,
 \begin{equation*}
     R(d)=\frac{d-d_{\min}}{d_{\max}-d_{\min}}
@@ -49,7 +49,7 @@ encoding is used to get the spike time of pixel d,
     S(d)={(R(d)-1)}^2 \times (T_{\max}-T_{\min})+T{\min}
 \end{equation*}
 where $T_{\min}$ and $T_{\max}$ are starting and stopping time of spike.
-\subsection{Initialization of \Snn}
+\subsection{Initialization of Spiking neural network}
 The memory NN in this method consists of three layers input, memory and output
 as shown in figure\ref{structure}. The spiking signal input is fed into the
 input layer. For the neuron, the LIF model is used. The memory layer grows new
@@ -72,7 +72,7 @@ Each neuron in layers is assigned a coordinate value. By using a spatial to
 temporal mechanism which encodes the spatial information of pixel values into
 delay of connection from the input layer to the memory layer as shown in the
 figure\ref{delay}. The delay of a connection from a neuron $i(x,y)$ where x and
-y are coordinates of the pixel values in a $p \times q$ input layer to
+y are coordinates of the pixel values in a $p \times q$ input layer to the
 corresponding neuron in the memory layer is calculated as
 \begin{equation*}
     delay_{im(x,y)}=x*p+y+1
@@ -83,7 +83,7 @@ corresponding neuron in the memory layer is calculated as
     \caption{Delay in neuron connections}\label{delay}
 \end{figure}
 \section{Structure formation}
-During the structure formation phase are fed into the network. The behavior of
+During the structure formation phase are fed into the network. The behaviour of
 neurons in the memory layer is recorded, and new connections are made within
 the memory layer based on Hebb's learning rule\cite{hebbs}. New connection
 conditions are based on their threshold values of distance and time difference
@@ -108,15 +108,15 @@ not change the weights of the connection between layers but rather changes the
 weight of the connection within the memory layer itself. For this process when
 a spiking sequence is fed into the network the most frequently fired neuron in
 the output layer is considered as output. If the network could correctly recall
-then no optimization need to be done else the weights need to be adjusted. It
+then no optimization needs to be done else the weights need to be adjusted. It
 works based on the following algorithm \\Step 1:Pick an input image\\ Step
 2:Feed input to the network\\ Step 3:Pick If the result of the output layer is
 correct go to 1 else 4\\ Step 4:Identify incorrectly firing set of neurons in
 output layer $S_{O}$ memory layer $S_{M}$ \\ Step 5:If i is a neuron in $S_M$
-and and j is a neuron in $S_O$ and weight of connection between them is
+and j is a neuron in $S_O$ and the weight of the connection between them is
 $W_{i,j}$, then $W_{i,j}=W_{i,j}*Shrink\_Coeff$\\ This process repeated for all
-the images.The value of $Shrink\_Coeff$ is constant between 0 and
-1.figure\ref{recall} shows the firing behavior of the memory layer when it is
+the images. The value of $Shrink\_Coeff$ is constant between 0 and
+1.figure\ref{recall} shows the firing behaviour of the memory layer when it is
 supplied with an input image corresponding to the number six. Colours indicate
 the time at which the spike occurred and lines indicate the connection between
 neurons.
@@ -126,8 +126,8 @@ neurons.
     \caption{Recall response for number 6}\label{recall}
 \end{figure}
 \section{Pruning}
-This phase help in improving the efficiency of the network. In this phase if
-the weight of a connection is less than the threshold (here 3), connection will
-be removed. Also, if there is a neuron in memory layer in memory layer which
-does not have any connections to output layer, the connection from input layer
-to that neuron will also be deleted.
+This phase helps in improving the efficiency of the network. In this phase, if
+the weight of a connection is less than the threshold (here 3), the connection
+will be removed. If there is a neuron in the memory layer which does not have
+any connections to the output layer, the connection from the input layer to
+that neuron will also be deleted.
