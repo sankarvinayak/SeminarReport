@@ -11,30 +11,30 @@ of four phases
 \end{enumerate}
 \section{Initialization}
 It involves two sub-process in which the data is preprocessed and converted
-into spiking signals and the network is initialized
+into spiking signals and the network is initialized.
 \subsection{Initialization input spiking signals}
 The input to the SNN is spiking signals for that the input values need to be
 converted into spiking signals. For the example purpose here MNIST dataset is
-used which contains handwritten characters on digits. The
-figure\ref{preprocessing} show the steps involved
+used which contains handwritten characters on digits. The figure
+\ref{preprocessing} shows the steps involved.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.7\linewidth]{preprocessing}
+    \includegraphics[width=0.8\linewidth]{preprocessing}
     \caption{Data preprocessing}\label{preprocessing}
 \end{figure}
 
-Four convolutional kernels of size $4\times4$ shown in figure\ref{kernel} is
+Four convolutional kernels of size $4\times4$ shown in figure \ref{kernel} is
 used to extract the features from the image pixel values. The input image into
 the kernel is of size $28\times28$ and the convolutional kernels reduce the
 shape into $24\times24$. Next, these values are passed through a max pooling
 layer of size $2\times2$. It reduces the size of the image to $12\times12$. The
 conversion layer converts these values into spiking encoding. Pixel value in
 the range of [0,255] converted to delay in a spike from [0,100]ms. The higher
-the value, shorter the delay.
+the value, the shorter the delay.
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.7\linewidth]{kernels}
+    \includegraphics[width=0.8\linewidth]{kernels}
     \caption{Kernels used}\label{kernel}
 \end{figure}
 To cover the values first min-max normalization is used in which, if
@@ -51,7 +51,7 @@ encoding is used to get the spike time of pixel d,
 where $T_{\min}$ and $T_{\max}$ are starting and stopping time of spike.
 \subsection{Initialization of Spiking neural network}
 The memory NN in this method consists of three layers input, memory and output
-as shown in figure\ref{structure}. The spiking signal input is fed into the
+as shown in figure \ref{structure}. The spiking signal input is fed into the
 input layer. For the neuron, the LIF model is used. The memory layer grows new
 connections to remember them. The output layer is responsible for generating
 the output. The number of neurons in both the input and memory layers is the
@@ -59,7 +59,7 @@ same as the number of input spiking signals which is 576. The output layer
 consists of 10 neurons which are equal to the number of output classes.
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.7\linewidth]{structure}
+    \includegraphics[width=0.8\linewidth]{structure}
     \caption{Structure of network}\label{structure}
 \end{figure}
 
@@ -68,18 +68,18 @@ The weight of the synapse is set to 50 as an initial value. It helps in
 provoking enough response in the memory layer based on Hebb's learning
 rule\cite{hebbs} to take place.
 
-Each neuron in layers is assigned a coordinate value. By using a spatial to
+Each neuron in layers is assigned a coordinate value. By using a spatial to the
 temporal mechanism which encodes the spatial information of pixel values into
 delay of connection from the input layer to the memory layer as shown in the
-figure\ref{delay}. The delay of a connection from a neuron $i(x,y)$ where x and
-y are coordinates of the pixel values in a $p \times q$ input layer to the
-corresponding neuron in the memory layer is calculated as
+figure \ref{delay}. The delay of a connection from a neuron $i(x,y)$ where x
+and y are coordinates of the pixel values in a $p \times q$ input layer to the
+the corresponding neuron in the memory layer is calculated as
 \begin{equation*}
     delay_{im(x,y)}=x*p+y+1
 \end{equation*}
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.7\linewidth]{delay}
+    \includegraphics[width=0.8\linewidth]{delay}
     \caption{Delay in neuron connections}\label{delay}
 \end{figure}
 \section{Structure formation}
@@ -102,27 +102,31 @@ calculated as
     delay_{mo(x,y)}=[N_m-delay_{im(x,y)}]+1
 \end{equation*}
 \section{Parameter training}
-This phase is based on the ideas of STDP and reinforcement learning. This phase
-checks the recall ability of the network for the set of inputs. This phase does
-not change the weights of the connection between layers but rather changes the
+This phase is based on the ideas of STDP and reinforcement learning. It checks
+the recall ability of the network for the set of inputs. This phase does not
+change the weights of the connection between layers but rather changes the
 weight of the connection within the memory layer itself. For this process when
 a spiking sequence is fed into the network the most frequently fired neuron in
 the output layer is considered as output. If the network could correctly recall
 then no optimization needs to be done else the weights need to be adjusted. It
-works based on the following algorithm \\Step 1:Pick an input image\\ Step
-2:Feed input to the network\\ Step 3:Pick If the result of the output layer is
-correct go to 1 else 4\\ Step 4:Identify incorrectly firing set of neurons in
-output layer $S_{O}$ memory layer $S_{M}$ \\ Step 5:If i is a neuron in $S_M$
-and j is a neuron in $S_O$ and the weight of the connection between them is
-$W_{i,j}$, then $W_{i,j}=W_{i,j}*Shrink\_Coeff$\\ This process repeated for all
+works based on the following algorithm
+\begin{description}
+    \item[Step 1:] Pick an input image
+    \item[Step 2:] Feed input to the network
+    \item[Step 3:] Pick If the result of the output layer is correct go to 1 else 4
+    \item[Step 4:] Identify incorrectly firing set of neurons in output layer $S_{O}$
+        memory layer $S_{M}$
+    \item[Step 5:] If i is a neuron in $S_M$ and j is a neuron in $S_O$ and the weight of
+        the connection between them is $W_{i,j}$, then $W_{i,j}=W_{i,j}*Shrink\_Coeff$
+\end{description}This process repeated for all
 the images. The value of $Shrink\_Coeff$ is constant between 0 and
-1.figure\ref{recall} shows the firing behaviour of the memory layer when it is
+1. Figure \ref{recall} shows the firing behaviour of the memory layer when it is
 supplied with an input image corresponding to the number six. Colours indicate
 the time at which the spike occurred and lines indicate the connection between
 neurons.
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.7\linewidth]{recall}
+    \includegraphics[width=0.8\linewidth]{recall}
     \caption{Recall response for number 6}\label{recall}
 \end{figure}
 \section{Pruning}

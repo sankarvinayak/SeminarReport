@@ -37,7 +37,10 @@
 \renewcommand{\bibname}{References}
 \usepackage{titlesec}
 \usepackage[none]{hyphenat}
-
+\usepackage{enumitem}
+\setlist[description]{leftmargin=\parindent,labelindent=\parindent}
+% \usepackage[yyyymmdd]{datetime}
+% \renewcommand{\dateseparator}{--}
 \titleformat{\chapter}[display]
 {\normalfont\Large\bfseries\centering}{\centering\chaptertitlename\ \thechapter}{20pt}{\Large}
 \titlespacing*{\chapter}
@@ -90,15 +93,15 @@
 \gdef\guidedes{Assistant Professor}%Seminar guide designation
 \gdef\semcordinatorA{Dr. Swaraj K P}% Seminar coordinator 1 
 \gdef\semcordinatorAdes{Associate Professor}% Seminar coordinator 1 designation
-\gdef\semcordinatorB{Ali~Akbar~N} % Seminar coordinator 2 
+\gdef\semcordinatorB{Prof Ali~Akbar~N} % Seminar coordinator 2 
 \gdef\semcordinatorBdes{Associate Professor}% Seminar coordinator 2 designation
-
+\gdef\semcordinatorC{Prof. Irshad M}
 \gdef\hod{Dr. Sabitha S} %Head of Department
 \gdef\hoddes{Professor and Head} %HOD designation
 
 \gdef\acadyear{2022 - 23} % Academic year
 \gdef\month{DECEMBER 2022} %Month of Report submission
-\gdef\date{15-12-2022} %Date of signing the declaration
+\gdef\date{31-12-2022} %Date of signing the declaration
 %*******************************************************************
 % The font pages. The source tex files are there in the folder
 \include{Contents/coverpage} %Unless essential Do not edit this tex file

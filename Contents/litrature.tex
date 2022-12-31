@@ -1,11 +1,11 @@
 \chapter{Literature Review}
 
 \section{Associative Memory}
-Associative memory also known as content addressable was first proposed in the
-early 1960s by researchers at IBM, including Richard W. Harker, Kenneth C.
-Thompson, and Robert D. Denny. CAM is a type of computer memory that allows for
-the rapid searching and retrieval of data by using the content of the data as
-the address.
+Associative memory also known as content addressable memory was first proposed
+in the early 1960s by researchers at IBM, including Richard W. Harker, Kenneth
+C. Thompson, and Robert D. Denny. CAM is a type of computer memory that allows
+for the rapid searching and retrieval of data by using the content of the data
+as the address.
 
 In traditional random access memory (RAM), data is stored in a specific
 location based on a numerical address and the data can be retrieved by
@@ -59,13 +59,13 @@ inputs and the activation of its outputs. The main two concepts in this system
 are
 
 \begin{description}
-    \item[Auto associative memory]A single layer NN in which the number of training
+    \item[Auto associative memory:]A single layer NN in which the number of training
     vectors and the number of output vectors are the same. The weights are
-    determined by the stored patterns
-    \item[Hetero associative memory]A single layer NN in which the number of input
+    determined by the stored patterns.
+    \item[Hetero associative memory:]A single layer NN in which the number of input
     training vectors and output are different. Weights are determined by the
     pattern stored in the network. It is static in nature and hence there would be
-    no linear or delay operations
+    no linear or delay operations.
 \end{description}
 \subsubsection{Advantages }
 One advantage of the model is that it provides a computational framework for
@@ -81,8 +81,8 @@ language processing.
 
 \subsubsection{Disadvantages}
 A disadvantage of the model is that it is a simplified model of the brain, and
-it may not capture all of the complexity and nuance of language processing. It
-is also based on a set of assumptions and simplifications, and it may not
+it may not capture all the complexity and nuance of language processing. It is
+also based on a set of assumptions and simplifications, and it may not
 accurately reflect the underlying mechanisms of the brain. In addition, the
 model is based on a set of equations and learning rules that are used to
 simulate the activation and deactivation of processing units, and these
@@ -147,9 +147,9 @@ in the network based on the input and output patterns of the network. The
 weights are adjusted using a learning rule that takes into account the error
 between the actual output of the network and the desired output.
 \subsubsection{Methodology}
-They propose a method which merges Bienenstock-Cooper-Munro learning
-rule(BCM)\cite{bcm} with Spike Time Dependent plasticity Spike-timing-dependent
-plasticity (STDP)\cite{stdp}.It yields a unimodal weight distribution where
+They propose a method which merges Bienenstock-Cooper-Munro learning rule
+(BCM)\cite{bcm} with Spike Time Dependent plasticity Spike-timing-dependent
+plasticity (STDP)\cite{stdp}. It yields an unimodal weight distribution where
 height is associated with STDP.
 
 The BCM learning rule is based on the idea that the strength of the connections
@@ -162,7 +162,7 @@ is low and the error is also low.
 
 STDP is an unsupervised learning rule based on the functioning of neurons in
 the brain for neuromorphic computing, which is the study inspired by the
-structure and functioning of the brain. In the process strength of the the
+structure and functioning of the brain. In the process strength of the
 connection between neurons changes based on the relative timing of spikes or
 impulses The basic idea behind STDP is that if two $N_{pre}$ and $N_{suc}$
 neurons are connected, and their spike time are $t_1$ and $t_2$ respectively
@@ -191,7 +191,7 @@ its own. Since it is based on the simple learning rules of adjusting the
 weights of the connections between neurons in the network based on the input
 and output patterns of the network it is relatively easy to implement and
 understand. Overall it has the potential to enable the use of SNN in a wide
-range of applications
+range of applications.
 \subsubsection{Disadvantages}
 Sometimes this may become computationally intensive, especially for large
 networks with many neurons and connections. This could make it difficult to use
@@ -205,7 +205,7 @@ the network. This means that SWAT may be sensitive to initialization and may
 require careful tuning of the initial weights to achieve good performance.
 \subsection{SpikeProp: backpropagation for networks of spiking neurons.}
 \subsubsection{Introduction}
-spiking neurons may be more biologically realistic and efficient than other
+Spiking neurons may be more biologically realistic and efficient than other
 types of artificial neurons, and they may be more suitable for certain tasks
 such as pattern recognition and natural language processing. However, they also
 note that training networks of spiking neurons can be difficult due to the
@@ -231,6 +231,6 @@ suitable for certain tasks. It is also more efficient in training SNN than
 other techniques. It makes it effective in applications like image recognition
 and language translation.
 \subsubsection{Disadvantages}
-It is not effective in all applications of spiking neural networks. Due to the
-approximations used in surrogate gradient function it may not be always
-accurate which may affect its performance
+It is not effective in all applications of spiking neural networks. Also, due to
+the approximations used in surrogate gradient function, it may not be always
+accurate which may affect its performance.
