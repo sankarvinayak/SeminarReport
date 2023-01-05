@@ -25,13 +25,13 @@ used which contains handwritten characters on digits. The figure
 \end{figure}
 
 Four convolutional kernels of size $4\times4$ shown in figure \ref{kernel} is
-used to extract the features from the image pixel values. The input image into
-the kernel is of size $28\times28$ and the convolutional kernels reduce the
-shape into $24\times24$. Next, these values are passed through a max pooling
-layer of size $2\times2$. It reduces the size of the image to $12\times12$. The
-conversion layer converts these values into spiking encoding. Pixel value in
-the range of [0,255] converted to delay in a spike from [0,100]ms. The higher
-the value, the shorter the delay.
+applied to the picture pixel values to extract the features. The input image
+into the kernel is of size $28\times28$ and the convolutional kernels reduce
+the shape into $24\times24$. Next, these values are passed through a maximum
+pooling layer shape $2\times2$. It makes the image smaller dimension of
+$12\times12$. The conversion layer converts these values into spiking encoding.
+Pixel value in the range of [0,255] converted to delay in a spike from
+    [0,100]ms. The delay is shorter if value higher.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.8\linewidth]{kernels}
@@ -40,88 +40,90 @@ the value, the shorter the delay.
 To cover the values first min-max normalization is used in which, if
 the value of a pixel is d then,
 \begin{equation*}
-    R(d)=\frac{d-d_{\min}}{d_{\max}-d_{\min}}
+    N(d)=\frac{d-d_{\min}}{d_{\max}-d_{\min}}
 \end{equation*}
 
 Where $d_{\min}$ and $d_{\max}$ are maximum and minimum pixel values. Power
 encoding is used to get the spike time of pixel d,
 \begin{equation*}
-    S(d)={(R(d)-1)}^2 \times (T_{\max}-T_{\min})+T{\min}
+    S(d)= (T_{\max}-T_{\min})\times{(N(d)-1)}^2 +T_{\min}
 \end{equation*}
-where $T_{\min}$ and $T_{\max}$ are starting and stopping time of spike.
+where $T_{\min}$ and $T_{\max}$ are the spike's beginning and ending times.
 \subsection{Initialization of Spiking neural network}
-The memory NN in this method consists of three layers input, memory and output
-as shown in figure \ref{structure}. The spiking signal input is fed into the
-input layer. For the neuron, the LIF model is used. The memory layer grows new
-connections to remember them. The output layer is responsible for generating
-the output. The number of neurons in both the input and memory layers is the
-same as the number of input spiking signals which is 576. The output layer
-consists of 10 neurons which are equal to the number of output classes.
+As shown in figure \ref{structure}, the memory NN in this approach has three
+layers: input, memory, and output. The input layer receives the input of the
+spiking signal. For the neuron, the LIF model is used. The memory layer grows
+new connections to remember them. The process of producing the output is
+handled by the output layer. Both the number of input spiking signals and the
+number of neurons in the input and memory layers are equal which is 576. Ten
+neurons, which is equal to the number of output classes, make up the output
+layer.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.8\linewidth]{structure}
     \caption{Structure of network}\label{structure}
 \end{figure}
 
-The connection from the input layer to the memory layer is one-to-one style.
-The weight of the synapse is set to 50 as an initial value. It helps in
-provoking enough response in the memory layer based on Hebb's learning
-rule\cite{hebbs} to take place.
+One-to-one connections are made between the input layer and the memory layer.
 
-Each neuron in layers is assigned a coordinate value. By using a spatial to the
-temporal mechanism which encodes the spatial information of pixel values into
-delay of connection from the input layer to the memory layer as shown in the
-figure \ref{delay}. The delay of a connection from a neuron $i(x,y)$ where x
-and y are coordinates of the pixel values in a $p \times q$ input layer to the
-the corresponding neuron in the memory layer is calculated as
+As a starting point, the synapse's weight is set at 50. It aids in eliciting
+the necessary reaction for Hebb's learning rule\cite{hebbs} to take place in
+the memory layer.
+
+A coordinate value is given to each neuron in a layer. Using the spatial to
+temporal method depicted in the figure\ref{delay}, which encodes the spatial
+information of pixel values into the connection delay from the input layer to
+the memory layer. The delay in a neuron $i(x,y)$ connection where the pixel
+values in an image's x and y coordinates $p \times q$ input layer to the the
+corresponding neuron in the memory layer is calculated as
 \begin{equation*}
-    delay_{im(x,y)}=x*p+y+1
+    d_{im(x,y)}=1+p*x+y
 \end{equation*}
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.8\linewidth]{delay}
     \caption{Delay in neuron connections}\label{delay}
 \end{figure}
-\section{Structure formation}
-During the structure formation phase are fed into the network. The behaviour of
+\section{Forming network structures}
+Spiking signals are fed into the network during this phase. The behaviour of
 neurons in the memory layer is recorded, and new connections are made within
 the memory layer based on Hebb's learning rule\cite{hebbs}. New connection
 conditions are based on their threshold values of distance and time difference
-in firing two neurons to avoid explosive growth of connections. If there are
-two neurons which satisfy the threshold conditions on delay and distance in
-firing and there is no connection between them a new connection is established
-between them.The smaller the threshold lesser the number of connections that
-will be created.
+in firing two neurons to avoid explosive growth of connections. A new
+connection is made between two neurons if they meet the threshold requirements
+for firing delay and firing distance but do not already have one.The smaller
+the threshold lesser the number of connections that will be created.
 
-It is repeated until the stopping condition is satisfied. Due to the leaking
-characteristics of the LIF model used the connection from the memory layer to
-output layer implements a spatial-to-temporal mechanism discussed earlier is
-used. The delay of connection from the memory layer to the output layer is
-calculated as
+Up until the stopping condition is met, it is repeated. Due to the LIF model's
+leaky properties, the connection between the memory layer and output layer uses
+the previously discussed spatial-to-temporal technique. The calculation of the
+connection delay between the memory layer and the output layer is
 \begin{equation*}
-    delay_{mo(x,y)}=[N_m-delay_{im(x,y)}]+1
+    d_{mo(x,y)}=1+[N_m-delay_{im(x,y)}]
 \end{equation*}
 \section{Parameter training}
 This phase is based on the ideas of STDP and reinforcement learning. It checks
 the recall ability of the network for the set of inputs. This phase does not
 change the weights of the connection between layers but rather changes the
-weight of the connection within the memory layer itself. For this process when
-a spiking sequence is fed into the network the most frequently fired neuron in
-the output layer is considered as output. If the network could correctly recall
-then no optimization needs to be done else the weights need to be adjusted. It
-works based on the following algorithm
+weight of the connection within the memory layer itself.The most often fired
+neuron in the output layer is taken into consideration as output for this
+procedure when a spiking sequence is supplied into the network. If the network
+could correctly recall, then there would be no need for optimization;
+otherwise, the weights would need to be changed. It works based on the
+following algorithm
 \begin{description}
     \item[Step 1:] Pick an input image
     \item[Step 2:] Feed input to the network
-    \item[Step 3:] Pick If the result of the output layer is correct go to 1 else 4
-    \item[Step 4:] Identify incorrectly firing set of neurons in output layer $S_{O}$
-        memory layer $S_{M}$
-    \item[Step 5:] If i is a neuron in $S_M$ and j is a neuron in $S_O$ and the weight of
-        the connection between them is $W_{i,j}$, then $W_{i,j}=W_{i,j}*Shrink\_Coeff$
+    \item[Step 3:] Go to step 1 if the output layer's result is accurate; otherwise, go
+        to step 4.
+    \item[Step 4:] Determine which neurons in the output layer $S_{O}$ and memory layer
+        $S_{M}$ are firing inappropriately.
+    \item[Step 5:] If i is a neuron in the set $S_M$ and j is a neuron in the set $S_O$
+        and the strength of the connection between them is $W_{i,j}$, then
+        $W_{i,j}=Shrink\_Coeff*W_{i,j}$
 \end{description}This process repeated for all
 the images. The value of $Shrink\_Coeff$ is constant between 0 and
-1. Figure \ref{recall} shows the firing behaviour of the memory layer when it is
-supplied with an input image corresponding to the number six. Colours indicate
+1. Figure \ref{recall} demonstrates the memory layer's firing behaviour after receiving an input image corresponding to the number six. Colours indicate
 the time at which the spike occurred and lines indicate the connection between
 neurons.
 \begin{figure}[h!]
@@ -130,8 +132,8 @@ neurons.
     \caption{Recall response for number 6}\label{recall}
 \end{figure}
 \section{Pruning}
-This phase helps in improving the efficiency of the network. In this phase, if
-the weight of a connection is less than the threshold (here 3), the connection
-will be removed. If there is a neuron in the memory layer which does not have
-any connections to the output layer, the connection from the input layer to
-that neuron will also be deleted.
+This phase helps in improving the efficiency of the network. If a connection's
+weight falls below the threshold during this period (here 3), the connection
+will be removed. The connection from the input layer to any memory layer
+neurons that don't have any connections to the output layer will likewise be
+eliminated.

@@ -1,11 +1,11 @@
 \chapter{Literature Review}
 
-\section{Associative Memory}
-Associative memory also known as content addressable memory was first proposed
-in the early 1960s by researchers at IBM, including Richard W. Harker, Kenneth
-C. Thompson, and Robert D. Denny. CAM is a type of computer memory that allows
-for the rapid searching and retrieval of data by using the content of the data
-as the address.
+\section{Content addressable Memory}
+Content addressable memory also known as Associative memory , was first
+proposed in the early 1960s by researchers at IBM, including Richard W. Harker,
+Kenneth C. Thompson, and Robert D. Denny. Using the content of the data as the
+address, CAM is a form of computer memory system that enables quick searching
+and retrieval of data.
 
 In traditional random access memory (RAM), data is stored in a specific
 location based on a numerical address and the data can be retrieved by
@@ -32,18 +32,19 @@ figure\ref{associative_circuit} shows one such circuit.
 \end{figure}
 
 \section{Associative network}
-An associative network is a type of artificial neural network that is designed
-to store and retrieve information based on the strength of the connections
-between neurons. Associative networks are often used for tasks that require the
-recall of specific patterns or relationships, such as image recognition,
-natural language processing, and recommendation systems.
-\subsection{An Interactive Activation Model of Context Effects in Letter Perception}
+A particular kind of artificial neural network called an associative network is
+made to store and retrieve data based on the strength of the connections
+between neurons. Associative networks are frequently employed for tasks like
+image recognition, natural language processing, and recommendation systems that
+demand the recall of information based on the relationship and pattern.
+\subsection{Influence of Context on Letter Perception:An Interactive Activation Model}
 \subsubsection{Introduction}
 The interactive activation model\cite{auto} is a computational model that
-attempts to explain how the brain processes and interprets written language. It
-suggests that the brain stores and retrieves information about letters and
-words based on the strength of the connections between neurons, and that these
-connections are influenced by both bottom-up and top-down processes.
+attempts to explain how the brain processes and interprets written language.
+According to this theory, the brain stores and retrieves information about
+letters and words based on the strength of the connections made between
+neurons. The bottom-up and top-down processes have different impacts on the
+strength of these connections.
 
 The model proposes that the brain has a hierarchical structure, with
 lower-level processing units representing features such as lines and curves,
@@ -53,31 +54,29 @@ of its inputs and the activation of its outputs.
 \subsubsection{Proposed system}
 The authors propose a hierarchical structure for the model, with lower-level
 processing units representing features such as lines and curves, and
-higher-level processing units representing letters and words. They suggest that
-the activation of a processing unit depends on both the activation of its
-inputs and the activation of its outputs. The main two concepts in this system
-are
+higher-level processing units representing letters and words. They contend that
+a processing unit's activation is reliant on the activations of both its inputs
+and outputs. The system's two primary ideas are
 
 \begin{description}
-    \item[Auto associative memory:]A single layer NN in which the number of training
-    vectors and the number of output vectors are the same. The weights are
-    determined by the stored patterns.
-    \item[Hetero associative memory:]A single layer NN in which the number of input
-    training vectors and output are different. Weights are determined by the
-    pattern stored in the network. It is static in nature and hence there would be
-    no linear or delay operations.
+    \item[Auto associative memory:]A single layer NN with the same number of training and
+    output vectors. The weights are determined by the patterns to be stored.
+    \item[Hetero associative memory:]A single-layer NN with different numbers of input
+    training vectors and output vectors. The pattern stored in the network
+    determines the weights. Because it is static, there will be no linear or delay
+    operations.
 \end{description}
 \subsubsection{Advantages }
-One advantage of the model is that it provides a computational framework for
+The model has the advantage of providing a computational framework for
 understanding how the brain processes and interprets written language. It
 suggests a hierarchical structure for the brain, with lower-level processing
 units representing features such as lines and curves, and higher-level
 processing units representing letters and words. Another advantage of the model
 is that it is based on the concept of auto-associative and heteroassociative
-memory, which are thought to play a role in perception and language processing
-in the human brain. This allows the model to capture the complex relationships
-between letters and words, and to explain a wide range of phenomena in written
-language processing.
+memory, which are thought to be involved in how the human brain processes
+language and perception. As a result, the model is able to capture the
+intricate connections between letters and words and explain a variety of
+occurrences in written language processing.
 
 \subsubsection{Disadvantages}
 A disadvantage of the model is that it is a simplified model of the brain, and
@@ -86,9 +85,9 @@ also based on a set of assumptions and simplifications, and it may not
 accurately reflect the underlying mechanisms of the brain. In addition, the
 model is based on a set of equations and learning rules that are used to
 simulate the activation and deactivation of processing units, and these
-equations may not accurately reflect the underlying mechanisms of the brain.
+equations may not mirror the brain's internal workings precisely.
 
-\subsection{Neural networks and physical systems with emergent collective computational abilities.}
+\subsection{Neural networks and physical systems: The Hopfield network}
 \subsubsection{Introduction}
 The Hopfield model\cite{hopfield} is a type of RNN that is designed to mimic
 the behaviour of neurons in the brain. It is a type of associative memory
@@ -96,27 +95,27 @@ system and hence it can store and recall information based on the relationship
 between the data stored. It has applications including pattern recognition,
 optimization, and error correction.
 \subsubsection{Methodology}
-This paper discusses the use of computational models and simulations to study
-the behaviour of neural networks and other distributed systems. He proposed an
-associative memory network type called the Hopfield network. A Hopfield network
-consists of a set of interconnected neurons that are arranged in a single
-layer. Each neuron is fully connected in the network, and the connections
-between neurons are adjusted based on the strength of the relationships between
-the inputs and outputs. The behaviour of a Hopfield network is determined by a
-set of equations that describe the activation and deactivation of the neurons
-over time. These equations are based on the concept of auto-associative memory,
-in which the output is used to retrieve the original input.
+The use of computational simulations and models to analyse the behaviour of
+distributed systems, including neural networks, is covered in this article. He
+suggested the Hopfield network, a sort of associative memory network. A
+Hopfield network is made up of a collection of connected neurons arranged in a
+single layer. Each neuron in the network is fully interconnected, and the
+strength of the connections between neurons is dependent on the interactions
+between inputs and outputs. A collection of equations that describe the
+activation and deactivation of the neurons over time dictate the behaviour of a
+Hopfield network. These equations are based on the idea of auto-associative
+memory, where the original input can be retrieved from the output.
 \subsubsection{Advantages}
-One advantage of the Hopfield model is that it is relatively simple and easy to
-implement. It consists of a single layer of interconnected neurons and the
-connections between neurons are adjusted based on the strength of the
-relationships between the inputs and outputs. This simplicity makes the
-Hopfield model easy to understand and implement. Another advantage of the
-Hopfield model is that it is capable of storing and retrieving patterns or
-sequences of data based on the strength of the connections between neurons.
-This makes it useful for tasks that require the recall of specific patterns or
-sequences of data, such as image recognition, natural language processing, and
-recommendation systems. Also, this model is relatively robust and resistant to
+The Hopfield model's relative simplicity and ease of implementation are two
+benefits. It is made up of a single layer of fully linked neurons, and the
+strength of the connections between them is determined by the interactions
+between inputs and outputs. This simplicity makes the Hopfield model easy to
+understand and implement. Another advantage of the Hopfield model is that it is
+depending on the strength of the connections between neurons, is that it is
+capable of storing and retrieving patterns or sequences of data. This makes it
+useful for tasks that require the recall of specific patterns or sequences of
+data, such as systems for recommendation, natural language processing, and
+picture identification. Also, this model is relatively robust and resistant to
 noise. These advantages make it useful in applications like image or speech
 recognition systems.
 \subsubsection{Disadvantages}
@@ -129,108 +128,110 @@ when used with a large amount or insufficiently distinct data. This can make it
 difficult to use the model for certain types of tasks, such as optimization or
 decision-making.
 \section{Spiking neural network}
-Spiking neural networks are a type of neural network that models the behaviour
-of biological neurons by using spikes or pulses to encode and transmit
-information. They are a relatively new type of neural network that has the
-potential to improve the performance and efficiency of artificial intelligence
-systems. The use of spiking neural networks for building associative memory
-systems is a relatively new area of research that has only recently started to
-gain attention.
+SNN are a subset of neural networks that mimic the behaviour of actual neurons
+by encoding and transmitting information via spikes or pulses. They are a
+relatively new variety of neural networks with the potential to raise the
+effectiveness and performance of artificial intelligence systems. Building
+associative memory systems using spiking neural networks is a relatively new
+field of study that has only lately begun to attract attention.
 
-\subsection{SWAT: a spiking neural network training algorithm for classification problems.}
+\subsection{Training strategy for spiking neural networks for classification: SWAT }
 \subsubsection{Introduction}
 SWAT\cite{swat}(Spiking Weight association Training) is a method for training
-spiking neural networks for classification tasks. It uses a combination of
-supervised and unsupervised learning to improve the performance of SNN. It is
-based on the idea of adjusting the weights of the connections between neurons
-in the network based on the input and output patterns of the network. The
-weights are adjusted using a learning rule that takes into account the error
-between the actual output of the network and the desired output.
+spiking neural networks for classification tasks. To enhance SNN performance,
+it combines supervised and unsupervised learning. Its foundation is the notion
+that the network's input and output patterns can be used to modify the weights
+of the connections between its neurons. The error between the network's actual
+output and the desired output is taken into consideration when adjusting the
+weights using a learning rule.
 \subsubsection{Methodology}
 They propose a method which merges Bienenstock-Cooper-Munro learning rule
 (BCM)\cite{bcm} with Spike Time Dependent plasticity Spike-timing-dependent
-plasticity (STDP)\cite{stdp}. It yields an unimodal weight distribution where
-height is associated with STDP.
+plasticity (STDP)\cite{stdp}.The result is a weight distribution that is
+unimodal, with weights and STDP being correlated.
 
-The BCM learning rule is based on the idea that the strength of the connections
-between neurons in the network should be adjusted based on the activity of the
-neurons and the error between the actual output of the network and the desired
-output. The rule specifies that the weights of the connections between neurons
-should be increased if the activity of the neurons is high and the error is
-also high, and the weights should be decreased if the activity of the neurons
-is low and the error is also low.
+The BCM learning rule is based on the notion that the network's connections
+between neurons should be strengthened in accordance with the activity of those
+neurons and the discrepancy between the network's actual output and the
+anticipated output. The rule states that if the activity of the neurons is high
+and the error is also high, the weights of the connections between neurons
+should be increased, and if the activity of the neurons is low and the error is
+also low, the weights should be decreased.
 
-STDP is an unsupervised learning rule based on the functioning of neurons in
-the brain for neuromorphic computing, which is the study inspired by the
-structure and functioning of the brain. In the process strength of the
-connection between neurons changes based on the relative timing of spikes or
-impulses The basic idea behind STDP is that if two $N_{pre}$ and $N_{suc}$
-neurons are connected, and their spike time are $t_1$ and $t_2$ respectively
-according to STDP \vspace*{-.3pc}
+For neuromorphic computing, the research that is influenced by the structure
+and operation of the brain, STDP is an unsupervised learning strategy based on
+how neurons work in the brain. Based on the relative timing of spikes or
+impulses, the strength of the connection between neurons fluctuates during the
+process. The fundamental tenet of STDP is that if two $N_{prede}$ and
+$N_{succe}$ neurons are connected, and their spike time are $w_1$ and $w_2$
+respectively according to STDP \vspace*{-.3pc}
 \begin{itemize}
-    \item[]Weight of connection from $N_{pre}$ to $N_{suc}$ should  increase, if {\boldmath$t_1>t_2$}
-    \item[]Weight of connection from $N_{pre}$ to $N_{suc}$ should  decrease, if {\boldmath$t_1<t_2$}
-    \item[]Weight of connection from $N_{pre}$ to $N_{suc}$ should  remain same, if {\boldmath$t_1=t_2$}
+    \item[]Strength of connection between $N_{prede}$ to $N_{succe}$ should  increase, if {\boldmath$w_1 w_2$}
+    \item[]Strength of connection between $N_{prede}$ to $N_{succe}$ should  decrease, if {\boldmath$w_1<w_2$}
+    \item[]Strength of connection between $N_{prede}$ to $N_{succe}$ should  remain same, if {\boldmath$w_1=w_2$}
 
 \end{itemize}
 %\vspace*{-2pc}
 
-Overall SWAT is based on the idea of adjusting the weights of the connections
-between neurons in the network based on the input and output patterns of the
-network. The weights are adjusted using a learning rule that takes into account
-the error between the actual output of the network and the desired output.
+In general, the foundation of SWAT is the notion that the network's input and
+output patterns can be used to modify the strength of connections between
+neurons in the network. The error between the network's actual output and the
+desired output is taken into consideration when adjusting the weights using
+this rule.
 \subsubsection{Advantages}
-One of the main advantages of SWAT is that it can be used to train spiking
-neural networks for classification tasks. This is important because spiking
-neural networks are a promising type of artificial neural network that is
-thought to have the potential to improve the performance of artificial
-intelligence systems. It uses a combination of supervised learning and
-unsupervised learning to train the network. This allows the network to learn
-from labelled examples as well as identify patterns and features in the data on
-its own. Since it is based on the simple learning rules of adjusting the
-weights of the connections between neurons in the network based on the input
-and output patterns of the network it is relatively easy to implement and
-understand. Overall it has the potential to enable the use of SNN in a wide
-range of applications.
+One of the main advantages of SWAT is that it spiking neural networks for
+classification problems can be trained using this technique. Since SNN are a
+promising sort of artificial neural network that is believed to have the
+potential to enhance performance, therefore understanding this method is
+crucial for better artificial intelligence systems. The network is trained
+using a mix of supervised learning and unsupervised learning. As a result, the
+network can both learn from tagged samples and independently find patterns and
+features in the data.It is reasonably simple to execute and comprehend since it
+is based on the straightforward learning rules of altering the weights of the
+connections between neurons in the network based on the input and output
+patterns of the network. Overall, it could make SNN use possible in a variety
+of applications.
 \subsubsection{Disadvantages}
 Sometimes this may become computationally intensive, especially for large
 networks with many neurons and connections. This could make it difficult to use
 SWAT on systems with limited computational resources. Another potential
-disadvantage is that it is based on supervised and unsupervised learning, in
-which supervised learning requires a large amount of labelled data to train the
-network effectively. This may be difficult to obtain in some cases. It also
-relies on the initial weights of the connections between neurons in the
-network, and these weights may have a significant impact on the performance of
-the network. This means that SWAT may be sensitive to initialization and may
-require careful tuning of the initial weights to achieve good performance.
-\subsection{SpikeProp: backpropagation for networks of spiking neurons.}
+disadvantage is that it is based on supervised and unsupervised learning, when
+efficient network training for supervised learning necessitates a significant
+volume of labelled data. In some circumstances, getting this could be
+challenging. It also depends on the network's initial weights for connections
+between neurons, and the network's performance may be significantly impacted by
+these weights. In order to obtain good performance, SWAT may be sensitive to
+initialization and may need the initial weights to be carefully tuned.
+
+\subsection{Backpropagation for spiking neural network:SpikeProp}
 \subsubsection{Introduction}
 Spiking neurons may be more biologically realistic and efficient than other
-types of artificial neurons, and they may be more suitable for certain tasks
-such as pattern recognition and natural language processing. However, they also
-note that training networks of spiking neurons can be difficult due to the
-non-differentiable nature of the spiking function. To address this problem, the
-authors propose the use of SpikeProp\cite{spikeprop}, which is a method for
-training networks of spiking neurons using backpropagation.
+types of artificial neurons,additionally, they might be better suited for
+specific jobs like pattern recognition and natural language processing.
+However, they also note that training networks of spiking neurons can be
+difficult due to the non-differentiable nature of the spiking function. To
+address this problem, the authors propose the use of SpikeProp\cite{spikeprop},
+which is a method for training networks of spiking neurons using
+backpropagation.
 \subsubsection{Methodology}
-It is a method for training networks of spiking neurons using backpropagation.
-The spiking function, which describes the relationship between the input and
-the output of a spiking neuron, is not differentiable. This means that
-traditional methods for training artificial neural networks, such as
-backpropagation, cannot be directly applied to networks of spiking neurons.This
-can be avoided by surrogate gradient function that approximates the gradient of
-the spiking function, which allows the use of backpropagation to train networks
-of spiking neurons.
+It is a technique for employing backpropagation to train networks of spiking
+neurons. The spiking function, which describes the connection between a spiking
+neuron's input and output, cannot be differentiated. This means that networks
+of spiking neurons cannot be trained using conventional techniques for
+artificial neural networks, such as backpropagation. But it can be used to
+train networks of spiking neurons while avoiding this problem by using a
+surrogate gradient function insted of the ordinary gradient ued in ANN. It
+approximates the gradient of the spiking function.
 
 \subsubsection{Advantages}
-It allows the use of backpropagation to train networks of spiking neurons. This
-makes it possible to leverage the simplicity and efficiency of backpropagation
-for training spiking neural networks. With spikeprop, it is possible to create
-artificial neural networks that are more biologically realistic and may be more
-suitable for certain tasks. It is also more efficient in training SNN than
-other techniques. It makes it effective in applications like image recognition
-and language translation.
+It enables the training of networks of spiking neurons using backpropagation.
+This makes it possible to use backpropagation's ease of use and effectiveness
+for training spiking neural networks. Spiking neural networks can be built
+resembling more the biological systems than the conventional ANN and make it
+better suited for particular tasks. It is also more efficient in training SNN
+than other techniques. It makes it effective in applications like image
+recognition and language translation.
 \subsubsection{Disadvantages}
-It is not effective in all applications of spiking neural networks. Also, due to
-the approximations used in surrogate gradient function, it may not be always
+It is not effective in all applications of spiking neural networks. Also, due
+to the approximations used in surrogate gradient function, it may not be always
 accurate which may affect its performance.
